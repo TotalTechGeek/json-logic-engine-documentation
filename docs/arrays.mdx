@@ -11,6 +11,8 @@ Operators | Instruction
 -- | --
 Includes | in
 Merge | merge
+Length | length
+Get | get
 
 ## Includes
 
@@ -27,4 +29,14 @@ Merge | merge
     'merge': [{var: ''}, [2,3], 4, [5]]
 }} defaultData={[1]} />
 
+## Length 
 
+<LogicRunner defaultLogic={{
+    'length': {var : ''}
+}} defaultData={[1]} />
+
+## Get 
+
+<LogicRunner defaultLogic={{
+    'get': [{var : ''}, '0']
+}} defaultData={[1]} />

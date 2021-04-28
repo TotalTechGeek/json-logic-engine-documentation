@@ -1,0 +1,40 @@
+---
+id: misc
+title: Miscellaneous Operators
+---
+
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Miscellaneous Operators</h1>
+
+
+Operators | Instruction 
+-- | --
+Preserve | preserve 
+Get | get 
+Keys | keys
+
+
+
+## Preserve
+
+Sometimes you might wish to embed an object or an array in your logic that you don't wish to be traversed. By using "preserve", you can remove the traversal.
+
+<LogicRunner defaultLogic={{
+    'preserve': { '+': [1,2] }
+}} defaultData={null} />
+
+## Get
+
+Sometimes you may wish to fetch an attribute from an object or array that isn't in the "context" (the data passed into the function). The use cases for this currently are semi-rare, but it can be coupled well with `eachKey`.
+
+<LogicRunner defaultLogic={{
+    'get': [{ preserve: { a: 5 } }, 'a']
+}} defaultData={null} />
+
+## Get the Keys of an Object
+
+<LogicRunner defaultLogic={{
+    'keys': {var: ''}
+}} defaultData={{ x: 1, y: 2 }} />

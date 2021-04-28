@@ -17,6 +17,7 @@ Filter | Filter
 Every | every, all
 Some | some
 None | none
+Each Object Key | eachKey
 
 Additionally, it is important to note that this module supports handlebars style traversal of data within these control structures. 
 
@@ -77,3 +78,14 @@ The third operand can be excluded.
     'none': [{var: ''}, { '%': [{var: ''}, 2] }]
 }} defaultData={[2,4,6,8]} />
 
+# Each Key
+
+Sometimes you may wish to iterate over an object instead of an array, executing the logic on each value in the object. `json-logic-engine` has a built in operator for this:
+
+
+<LogicRunner defaultLogic={{
+    'eachKey': {
+        a: { var: 'x' },
+        b: { '+': [{ var: 'y' }, 1] }
+    }
+}} defaultData={{ x: 1, y: 2 }} />

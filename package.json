@@ -13,17 +13,16 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
-  
-    "nohoist": [
-      "docs/**"
-    ],
+  "nohoist": [
+    "docs/**"
+  ],
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.74",
     "@docusaurus/preset-bootstrap": "2.0.0-alpha.74",
     "@mdx-js/react": "^1.5.8",
     "ace-builds": "^1.4.12",
     "classnames": "^2.2.6",
-    "json-logic-engine": "^1.0.0",
+    "json-logic-engine": "^1.1.1",
     "react": "^17.0.1",
     "react-ace": "^9.4.0",
     "react-dom": "^17.0.1"
