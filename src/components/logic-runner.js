@@ -1,18 +1,15 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LogicEngine } from 'json-logic-engine'
-import AceEditor from "react-ace";
 
-const noOp = () => {}
 const engine = new LogicEngine()
 
-
-export default function LogicRunner({ defaultLogic, defaultData }) {
+export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
     const [code, setCode] = useState(defaultLogic)
     const [data, setData] = useState(defaultData)
     const [out, setOut] = useState('')
   
-    const [func, setFunc] = useState({ built: noOp })
+    const [func, setFunc] = useState({ built: () => {} })
   
     function executeLogic() {
       setOut(func.built(data))
@@ -32,6 +29,10 @@ export default function LogicRunner({ defaultLogic, defaultData }) {
       executeLogic()
     }, [func])
   
+    if (typeof window !== 'undefined') {
+
+    const AceEditor = require("react-ace").default;
+    
     return <>
           <b>Logic:</b>
           <AceEditor style={{height: '120px' }} mode={'javascript'} value={JSON.stringify(code, undefined, 4)} onChange={data => {
@@ -54,4 +55,6 @@ export default function LogicRunner({ defaultLogic, defaultData }) {
           <code>{JSON.stringify(out)}</code>
   
     </>
+    }
+    return null
   }
