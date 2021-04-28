@@ -37,6 +37,19 @@ const g = engine.build({ 'cat' : [{ 'repeat': [{var: ''}, 7] }, ' Batman'] })
 console.log(g('Na')) // NaNaNaNaNaNaNa Batman 
 ```
 
+### Adding a whole library
+
+
+If you would like to import a whole library, you may call `addModule` to do so.
+
+```js
+// imports all of the methods from Math (the annotations are explained below, and can be left off. They can help optimize your logic though.)
+engine.addModule('Math', Math, { deterministic: true, sync: true })
+
+const j = engine.build({ "Math.sqrt": { "Math.round": 25.3 } })
+
+console.log(j()) //? prints 5
+```
 
 
 #### Additional Flexibility

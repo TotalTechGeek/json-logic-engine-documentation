@@ -5342,10 +5342,10 @@ json-buffer@3.0.0:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
   integrity sha1-Wx85evx11ne96Lz8Dkfh+aPZqJg=
 
-json-logic-engine@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/json-logic-engine/-/json-logic-engine-1.1.1.tgz#6b78def9e9fee3e3cf243949a02e312360af74cb"
-  integrity sha512-x6X8L5U+7IYLXa7SPGAKVuocaXNqJviuYu6KGS4eAZhRFaXbo4DSBXvUjItOecR7bkHpGoeyrnHWSMIFsgOsnw==
+json-logic-engine@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/json-logic-engine/-/json-logic-engine-1.1.2.tgz#17d2f729269a85e8bad018a6d07fb3f5fde70816"
+  integrity sha512-+ZADyOylLJO6P+hZDn5hgWcgAvaClRvGcDkBEyhSlnPHpsgWYU/ZxIA6YwB/08wzXWw8uJu6yNmyU8jfZN7bkg==
 
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
