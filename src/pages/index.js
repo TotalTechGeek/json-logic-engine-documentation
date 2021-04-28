@@ -80,8 +80,8 @@ export default function Home() {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="Fast, Powerful &amp; Persistable Logic">
       <div className={styles.hero}>
         <header>
           <h1>{siteConfig.title}</h1>

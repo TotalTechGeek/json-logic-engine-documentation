@@ -13,7 +13,7 @@ module.exports = {
     navbar: {
       title: 'JSON Logic Engine',
       logo: {
-        alt: 'JSON Logic Engine oOgo',
+        alt: 'JSON Logic Engine',
         src: 'img/logo.svg',
       },
       items: [
