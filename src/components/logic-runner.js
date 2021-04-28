@@ -36,7 +36,10 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
     return <>
           <b>Logic:</b>
           <AceEditor style={{height: '120px' }} mode={'javascript'} value={JSON.stringify(code, undefined, 4)} onChange={data => {
-            setCode(JSON.parse(data))
+            try { 
+              setCode(JSON.parse(data)) 
+            } 
+            catch (err) {}
           }} />
           <br />
           <b>Data:</b>
