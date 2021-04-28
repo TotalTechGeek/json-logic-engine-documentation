@@ -1,0 +1,79 @@
+---
+id: higher
+title: Higher Order Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Higher Order Operators</h1>
+
+Higher order operations are significantly more complex than the other types of operations, because they allow you to apply a piece of logic iteratively. <br/><br/>
+
+Operators | Instruction
+-- | --
+Map | map
+Reduce | reduce
+Filter | Filter
+Every | every, all
+Some | some
+None | none
+
+Additionally, it is important to note that this module supports handlebars style traversal of data within these control structures. 
+
+
+## Map
+
+
+<LogicRunner defaultLogic={{
+    'map': [{ var: ''}, { '+': [{var: ''}, 1]}]
+}} defaultData={[1,2,3]} />
+
+The first operand defines the array you are operating on, while the second defines the operation you are performing. The context switches such that the local variable is the value from the array.
+
+<br />
+This following example shows the Handlebars style traversal - <br/>
+
+<LogicRunner defaultLogic={{
+    'map': [{ var: 'arr'}, { '+': [{var: '../../a'}, {var: ''}]}]
+}} defaultData={{ arr: [1,2,3], a: 2 }} />
+
+
+## Reduce
+
+
+<LogicRunner defaultLogic={{
+    'reduce': [{var: 'arr'}, { '+': [{var: 'accumulator'}, { var: 'current' }] }, 0]
+}} defaultData={{ arr:  [1,2,3,4,5] }} />
+
+The first operand defines the array you are operating on, while the second defines the operation you are performing. The context switches such that the value "current" is the value from the array, and "accumulator" is the accumulated value.
+
+The third operand can be excluded.
+
+
+## Filter
+
+<LogicRunner defaultLogic={{
+    'filter': [{var: ''}, { '%': [{var: ''}, 2] }]
+}} defaultData={[1,2,3,4,5,6,7,8,9,10]} />
+
+
+# Every, All
+
+<LogicRunner defaultLogic={{
+    'every': [{var: ''}, { '%': [{var: ''}, 2] }]
+}} defaultData={[1,3,5,7,9]} />
+
+
+# Some
+
+<LogicRunner defaultLogic={{
+    'some': [{var: ''}, { '%': [{var: ''}, 2] }]
+}} defaultData={[2,3,5,7,9]} />
+
+
+# None
+
+<LogicRunner defaultLogic={{
+    'none': [{var: ''}, { '%': [{var: ''}, 2] }]
+}} defaultData={[2,4,6,8]} />
+

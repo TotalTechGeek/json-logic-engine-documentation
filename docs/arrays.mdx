@@ -1,0 +1,30 @@
+---
+id: array
+title: Array Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Array Operators</h1>
+
+Operators | Instruction
+-- | --
+Includes | in
+Merge | merge
+
+## Includes
+
+
+<LogicRunner defaultLogic={{
+    'in': [5, {var: ''}]
+}} defaultData={[1,2,3,4,5]} />
+
+
+## Merge
+
+
+<LogicRunner defaultLogic={{
+    'merge': [{var: ''}, [2,3], 4, [5]]
+}} defaultData={[1]} />
+
+

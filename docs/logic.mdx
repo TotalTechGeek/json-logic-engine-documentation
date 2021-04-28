@@ -1,0 +1,121 @@
+---
+id: logic
+title: Logic Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Logic Operators</h1>
+
+Operators | Instruction 
+-- | -- 
+Greater Than | >
+Greater Than Equals  | >=
+Less Than | < 
+Less Than Equals | <=
+Not | not, !
+!! (to Boolean) | !!
+And | and
+Or | or
+Equals | ==
+Equals Strict | ===
+Not Equals | !=
+Not Equals Strict | !==
+Xor | xor
+If | if, ?:
+
+## Greater Than
+
+
+<LogicRunner defaultLogic={{
+    '>': [1, {var: ''}]
+}} defaultData={2} />
+
+
+## Greater Than Equals
+
+
+<LogicRunner defaultLogic={{
+    '>=': [10, {var: ''}]
+}} defaultData={5} />
+
+
+## Less Than
+
+<LogicRunner defaultLogic={{
+    '<': [5, {var: ''}]
+}} defaultData={8} />
+
+
+## Less Than Equals
+
+<LogicRunner defaultLogic={{
+    '<=': [11, {var: ''}]
+}} defaultData={2} />
+
+
+## Not
+
+<LogicRunner defaultLogic={{
+    'not': { var: '' }
+}} defaultData={true} />
+
+Also available as `!`
+
+
+
+## !!
+
+<LogicRunner defaultLogic={{
+    '!!': { var: '' }
+}} defaultData={1} />
+
+
+## And
+
+<LogicRunner defaultLogic={{
+    'and': [true, {var: ''}]
+}} defaultData={false} />
+
+## Or
+
+<LogicRunner defaultLogic={{
+    'or': [false, {var : ''}]
+}} defaultData={true} />
+
+
+## Equals 
+ 
+<LogicRunner defaultLogic={{
+    '==': [1, {var: ''}]
+}} defaultData={'1'} />
+
+## Equals Strict 
+ 
+<LogicRunner defaultLogic={{
+    '===': [1, {var: ''}]
+}} defaultData={'1'} />
+
+## Not Equals 
+
+<LogicRunner defaultLogic={{
+    '!=': [1, {var: ''}]
+}} defaultData={'1'} />
+
+## Not Equals Strict 
+
+<LogicRunner defaultLogic={{
+    '!==': [1, {var: ''}]
+}} defaultData={'1'} />
+
+## Xor 
+
+<LogicRunner defaultLogic={{
+    'xor': [10, {var: ''}]
+}} defaultData={10} />
+
+## If 
+
+<LogicRunner defaultLogic={{
+    'if': [{ '>': [{var: ''}, 5]}, 'Yay', 'Not Yay']
+}} defaultData={10} />

@@ -1,0 +1,62 @@
+---
+id: context
+title: Context Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Context Operators</h1>
+
+Operators | Instruction
+-- | --
+var | var
+missing | missing
+missing_some | missing_some
+
+These operators allow you to fetch data from the context &amp; check for the existence of values.
+
+<br/>
+Additionally, these operators support handlebars style data traversal  inside of higher order operators (next page).
+
+## var
+
+
+By just using `''` as the input for var, you can get the current value that is in scope, regardless of its type.
+
+
+<LogicRunner defaultLogic={{
+    var: ''
+}} defaultData={"Test"} />
+
+If you wish, you can drill down and fetch specific properties: 
+
+
+<LogicRunner defaultLogic={{
+    '+': [{var: 'a'}, { var: 'b.c'}, { var: 'd.0' }]
+}} defaultData={{
+    a: 1,
+    b: { c: 2 },
+    d: [3]
+}} />
+
+
+
+
+## Missing
+
+Returns an array of the values that are "missing"
+
+<LogicRunner defaultLogic={{
+    'missing': ['a', 'b']
+}} defaultData={{ a: true}} />
+
+
+## Missing Some
+
+From `json-logic-js`, passing in the number of required variables &amp; the variable names, if it has enough of them, it'll return an empty array, otherwise it'll return the items that are missing.
+
+<LogicRunner defaultLogic={{
+    'missing_some': [1, ['a', 'b', 'c']]
+}} defaultData={{ a: true}} />
+
+

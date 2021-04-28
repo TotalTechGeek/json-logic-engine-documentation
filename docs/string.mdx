@@ -1,0 +1,42 @@
+---
+id: string
+title: String Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>String Operators</h1>
+
+Operators | Instruction
+-- | --
+Concatenation | cat
+Includes | in
+Substring | substr
+
+## Concatenation
+
+
+<LogicRunner defaultLogic={{
+    'cat': ["Hello, ", {var: ''}, "!"]
+}} defaultData={"World"} />
+
+
+## Includes
+
+
+<LogicRunner defaultLogic={{
+    'in': [{var: ''}, "hello"]
+}} defaultData={"e"} />
+
+
+## Substring
+
+<LogicRunner defaultLogic={{
+    'substr': [{var: 'text'}, {var: 'start'}, {var: 'end'}]
+}} defaultData={{
+    text: 'json-logic-engine',
+    start: 5,
+    end: -7
+}} />
+
+

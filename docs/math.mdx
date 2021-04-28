@@ -1,0 +1,70 @@
+---
+id: math
+title: Math Operators
+---
+
+import LogicRunner from '../src/components/logic-runner'
+
+<h1>Math Operators</h1>
+
+Operators | Instruction
+-- | --
+Addition | +
+Subtraction | - 
+Multiplication | * 
+Division | /
+Modulo | %
+Maximum | min
+Minimum | max
+## Addition
+
+
+<LogicRunner defaultLogic={{
+    '+': [1, {var: ''}]
+}} defaultData={2} />
+
+This method can also be used to cast strings to numbers, and sum up the output returned by other function calls.
+
+## Subtraction
+
+
+<LogicRunner defaultLogic={{
+    '-': [10, {var: ''}]
+}} defaultData={2} />
+
+
+## Multiplication
+
+<LogicRunner defaultLogic={{
+    '*': [5, {var: ''}]
+}} defaultData={3} />
+
+
+## Division
+
+<LogicRunner defaultLogic={{
+    '/': [1, {var: ''}]
+}} defaultData={2} />
+
+
+## Modulo
+
+<LogicRunner defaultLogic={{
+    '%': [5, {var: ''}]
+}} defaultData={3} />
+
+
+## Maximum
+
+<LogicRunner defaultLogic={{
+    'max': [1, 8, {var: ''}]
+}} defaultData={13} />
+
+
+## Minimum
+
+<LogicRunner defaultLogic={{
+    'min': [1, 8, {var: ''}]
+}} defaultData={5} />
+
+
