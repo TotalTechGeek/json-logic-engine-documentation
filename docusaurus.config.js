@@ -3,7 +3,7 @@ module.exports = {
   title: 'JSON Logic Engine',
   tagline: 'For implementing safe & complex persistable logic.',
   url: 'https://jessemitchell.me',
-  baseUrl: '/',
+  baseUrl: '/json-logic-engine/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',

@@ -24,6 +24,14 @@ const features = [
       <br/>
       <br/>
       Additionally, the module supports function compilation to try to get near-native performance wherever it can.
+      <br/>
+      <br/>
+
+      <pre style={{ background: '#001627', color: '#308AFF', padding: '10px'}}>
+      npm install json-logic-engine <br/>
+      -- or -- <br/>
+      yarn add json-logic-engine
+      </pre>
     </>)
   },
  
