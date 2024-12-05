@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { LogicEngine } from 'json-logic-engine'
 
 const engine = new LogicEngine()
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import Editor from "@monaco-editor/react"
 
 // Save a reference to the original ResizeObserver
@@ -60,40 +61,46 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
 
     
     return <>
+        <BrowserOnly>
+         {   () => (
+          <>
           <b>Logic:</b>
-          <Editor 
-          
-          // turn off minimap
-          options={{ minimap: { enabled: false } }}
+            <Editor 
+            
+            // turn off minimap
+            options={{ minimap: { enabled: false } }}
 
-          height='180px'
-          className='editor'
-           defaultLanguage={'json'} defaultValue={JSON.stringify(code, undefined, 2)}  onChange={data => {
-            try { 
-              setCode(JSON.parse(data)) 
-            } 
-            catch (err) {}
-          }} />
-          <br />
-          <b>Data:</b>
-          <Editor 
-          options={{ minimap: { enabled: false } }}
-          
-          className='editor' height='140px' defaultLanguage={'json'} defaultValue={JSON.stringify(data, undefined, 4)} onChange={data => {
-            try { 
-              setData(JSON.parse(data))
-            }
-            catch(ex) {
-  
-            }
-          }} />
-          <br />
-          <button className='btn btn-secondary' onClick={executeLogic}>Execute</button> <br/>
-  
-          Output: <br/>
-          <code>{JSON.stringify(out)}</code>
-  
+            height='180px'
+            className='editor'
+            defaultLanguage={'json'} defaultValue={JSON.stringify(code, undefined, 2)}  onChange={data => {
+              try { 
+                setCode(JSON.parse(data)) 
+              } 
+              catch (err) {}
+            }} />
+            <br />
+            <b>Data:</b>
+            <Editor 
+            options={{ minimap: { enabled: false } }}
+            
+            className='editor' height='140px' defaultLanguage={'json'} defaultValue={JSON.stringify(data, undefined, 4)} onChange={data => {
+              try { 
+                setData(JSON.parse(data))
+              }
+              catch(ex) {
+    
+              }
+            }} />
+            <br />
+            <button className='btn btn-secondary' onClick={executeLogic}>Execute</button> <br/>
+    
+            Output: <br/>
+            <code>{JSON.stringify(out)}</code>
+            </>
+    )}
+          </BrowserOnly>
     </>
+    
     }
     return null
   }
