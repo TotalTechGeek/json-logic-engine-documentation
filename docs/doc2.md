@@ -6,33 +6,36 @@ title: Blazing Fast via Compilation
 
 ## Blazing Fast Performance with Compilation
 
-`json-logic-engine` has support for logic-compilation which greatly enhances run-time performance of your logic. In a number of (simpler) cases, it can get rather close to native performance. 
-
-<br />
+`json-logic-engine` has support for logic compilation which greatly enhances run-time performance of your logic. In a number of (simpler) cases, it can get rather close to native performance. Additionally, as of `v2.0.0`, the interpreter has an optimizer that can cache the execution plan of the logic if re-used, improving interpreted performance without the need for compilation.
 
 
-Running many iterations of `json-logic-js`'s test suite, we can observe stark performance differences between the built versions of the logic-engine against `json-logic-js`. Some of the additional features of the engine do seem to cause the interpreted version of the engine to perform slightly slower. <br/><br/>
+
+Running many iterations of `json-logic-js`'s test suite, we can observe stark performance differences between the built versions of the `json-logic-engine` against `json-logic-js`.  <br/>
 
 
 ```
 > node test.js
-json-logic-js: 10.872s
-le interpreted: 13.291s
-le built: 1.695s
-le async built: 4.171s
+json-logic-js: 5.617s
+le interpreted: 5.287s
+le interpreted (optimized): 2.725s
+le built: 756.049ms
+le async interpreted: 4.725s
+le async built: 2.231s
 ```
 
 
 <br/>
 
-This comparison is not fair though, as the compilation mechanism is able to evaluate whether a particular branch is deterministic & pre-compute portions of the logic in advance. Running a modified test suite that can't be pre-computed unfairly yields this alternative set of results:
+This comparison is not fair though, as the compilation mechanism is able to evaluate whether a particular branch is deterministic & pre-compute portions of the logic in advance. Running a different test suite that can't be pre-computed yields:
 
 ```
 > node test.js
-json-logic-js: 741.06ms
-le interpreted: 858.67ms
-le built: 22.686ms
-le async built: 75.483ms
+json-logic-js: 312.856ms
+le interpreted: 287.769ms
+le interpreted (optimized): 79.886ms
+le built: 15.186ms
+le async interpreted: 130.97ms
+le async built: 53.791ms
 ```
 
 <br/>
@@ -41,8 +44,9 @@ Additionally, the compilation mechanism allows the asynchronous version of the e
 
 ```
 > node perf.js & node perf2.js
-interpreted: 23.365s
-built: 185.105ms
+interpreted: 8.765s
+interpreted (optimized): 796.726ms
+built: 130.512ms
 ```
 
 --- 
@@ -97,11 +101,11 @@ vs
 }
 ```
 
-The performance difference is staggering: 
+The performance difference is significant: 
 ```
 > node rules.js
-json-logic-engine: 83.782ms
-json-rules-engine: 39.928s
+json-logic-engine: 54.421ms
+json-rules-engine: 9.153s
 ```
 
 ---

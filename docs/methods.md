@@ -13,7 +13,7 @@ While the default methods support a lot of common functionality, to make the log
 ```js
 const engine = new LogicEngine()
 
-engine.addMethod('hello', name => {
+engine.addMethod('hello', ([name]) => {
     return `Hello, ${name}!`
 })
 
@@ -98,7 +98,6 @@ engine | The current engine powering this call, this is really useful for when y
 
 
 
-> Be aware that if you write your function to access context, you should add `useContext: true` to your function object configuration. This is used by the compilation mechanism.
 
 --- 
 

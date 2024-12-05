@@ -3,54 +3,24 @@ id: doc3
 title: Differences from json-logic-js
 ---
 
-At the time of writing, `json-logic-engine` is approximately 90% compatible with `json-logic-js`'s test suite, this is unlikely to improve due to differences of opinion between the authors &amp; language origins.
+At the time of writing, `json-logic-engine` is  100% compatible with `json-logic-js`'s test suite
 
-<br/>
+However, in order to switch to fully compatible behaviors, you must pass a flag into the constructor.
 
-`json-logic-js` was developed to be compatible with PHP, and this has led to some subtle differences.
+```javascript
+const engine = new LogicEngine(undefined, { compatible: true })
+```
 
+This will make minor modifications to truthiness rules. In the future, I will likely make this the default behavior.
 
 ### Empty Arrays are Truthy
 
-In JavaScript & most languages, because arrays are objects, they are evaluated as truthy even if they are empty. `json-logic-engine` follows this convention.
+By default, empty arrays are truthy in `json-logic-engine` while they are falsy in `json-logic-js`. This is likely due to JSON Logic's roots in PHP.
 
-<br/>
-
-Because PHP does not follow this convention, the author of `json-logic-js` wrote his interpreter to evaluate `[]` as false, as well as a few comparable cases, like `[0]`. I do not think I will budge on this stance, but it is possible to override the `and`, `or` and `if` methods to mimic this functionality if necessary.
-
-### No Support for "if" chaining
-
-This may be adjusted at some point in the future, `json-logic-engine` supports if statements in the following format:
-
-```json
-{
-    "if": [
-        conditional,
-        then,
-        else
-    ]
-}
-```
-
-It does not support the syntax 
-```json
-{
-    "if": [
-        conditional,
-        then,
-        conditional2,
-        then2,
-        ...,
-        else
-    ]
-}
-```
-
-This may change in the future.
 
 ### "all" with zero items evaluates to true
 
-To keep in line with JavaScript's `every` method, which checks if each item in an array checked against a conditional is true, if there are zero items in the array the method defaults to true.
+To keep in line with JavaScript's `every` method by default, `json-logic-engine` checks if each item in an array checked against a conditional is true, if there are zero items in the array the method defaults to true.
 
 ```json
 {
@@ -60,6 +30,3 @@ To keep in line with JavaScript's `every` method, which checks if each item in a
 // json-logic-engine: true
 ```
 
-### Conclusion
-
-For most users, it is the author's opinion that most will not be impacted by the differences between the two modules.

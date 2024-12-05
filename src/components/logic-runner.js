@@ -3,12 +3,39 @@ import React, { useEffect, useState } from 'react';
 import { LogicEngine } from 'json-logic-engine'
 
 const engine = new LogicEngine()
+import Editor from "@monaco-editor/react"
+
+// Save a reference to the original ResizeObserver
+const OriginalResizeObserver = window.ResizeObserver;
+
+// Create a new ResizeObserver constructor
+window.ResizeObserver = function (callback) {
+  const wrappedCallback = (entries, observer) => {
+    window.requestAnimationFrame(() => {
+      callback(entries, observer);
+    });
+  };
+
+  // Create an instance of the original ResizeObserver
+  // with the wrapped callback
+  return new OriginalResizeObserver(wrappedCallback);
+};
+
+// Copy over static methods, if any
+for (let staticMethod in OriginalResizeObserver) {
+  if (OriginalResizeObserver.hasOwnProperty(staticMethod)) {
+    window.ResizeObserver[staticMethod] = OriginalResizeObserver[staticMethod];
+  }
+}
 
 export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
     const [code, setCode] = useState(defaultLogic)
     const [data, setData] = useState(defaultData)
     const [out, setOut] = useState('')
   
+
+    const editorRef = React.useRef(null);
+
     const [func, setFunc] = useState({ built: () => {} })
   
     function executeLogic() {
@@ -31,11 +58,17 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
   
     if (typeof window !== 'undefined') {
 
-    const AceEditor = require("react-ace").default;
     
     return <>
           <b>Logic:</b>
-          <AceEditor style={{height: '120px' }} mode={'javascript'} value={JSON.stringify(code, undefined, 4)} onChange={data => {
+          <Editor 
+          
+          // turn off minimap
+          options={{ minimap: { enabled: false } }}
+
+          height='180px'
+          className='editor'
+           defaultLanguage={'json'} defaultValue={JSON.stringify(code, undefined, 2)}  onChange={data => {
             try { 
               setCode(JSON.parse(data)) 
             } 
@@ -43,7 +76,10 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
           }} />
           <br />
           <b>Data:</b>
-          <AceEditor style={{height: '100px' }} mode={'javascript'} value={JSON.stringify(data, undefined, 4)} onChange={data => {
+          <Editor 
+          options={{ minimap: { enabled: false } }}
+          
+          className='editor' height='140px' defaultLanguage={'json'} defaultValue={JSON.stringify(data, undefined, 4)} onChange={data => {
             try { 
               setData(JSON.parse(data))
             }
@@ -52,7 +88,7 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
             }
           }} />
           <br />
-          <button class='btn btn-secondary' onClick={executeLogic}>Execute</button> <br/>
+          <button className='btn btn-secondary' onClick={executeLogic}>Execute</button> <br/>
   
           Output: <br/>
           <code>{JSON.stringify(out)}</code>
