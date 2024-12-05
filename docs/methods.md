@@ -3,8 +3,6 @@ id: methods
 title: Adding Methods 
 ---
 
-## Adding Methods
-
 While the default methods support a lot of common functionality, to make the logic engine useful within your domain & give it the ability to interact with your platform, the module has tried to make it simple to add new commands into the framework.
 
 <br/>

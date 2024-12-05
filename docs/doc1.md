@@ -6,9 +6,6 @@ slug: /
 ---
 
 
-## Installation & Setup
-
-
 First, add the module to your application through your preferred package manager, 
 
 <br />
