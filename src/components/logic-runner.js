@@ -5,29 +5,34 @@ import { LogicEngine } from 'json-logic-engine'
 const engine = new LogicEngine()
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Editor from "@monaco-editor/react"
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
-// Save a reference to the original ResizeObserver
-const OriginalResizeObserver = window.ResizeObserver;
 
-// Create a new ResizeObserver constructor
-window.ResizeObserver = function (callback) {
-  const wrappedCallback = (entries, observer) => {
-    window.requestAnimationFrame(() => {
-      callback(entries, observer);
-    });
+if (ExecutionEnvironment.canUseDOM) {
+  // Save a reference to the original ResizeObserver
+  const OriginalResizeObserver = window.ResizeObserver;
+
+  // Create a new ResizeObserver constructor
+  window.ResizeObserver = function (callback) {
+    const wrappedCallback = (entries, observer) => {
+      window.requestAnimationFrame(() => {
+        callback(entries, observer);
+      });
+    };
+
+    // Create an instance of the original ResizeObserver
+    // with the wrapped callback
+    return new OriginalResizeObserver(wrappedCallback);
   };
 
-  // Create an instance of the original ResizeObserver
-  // with the wrapped callback
-  return new OriginalResizeObserver(wrappedCallback);
-};
-
-// Copy over static methods, if any
-for (let staticMethod in OriginalResizeObserver) {
-  if (OriginalResizeObserver.hasOwnProperty(staticMethod)) {
-    window.ResizeObserver[staticMethod] = OriginalResizeObserver[staticMethod];
+  // Copy over static methods, if any
+  for (let staticMethod in OriginalResizeObserver) {
+    if (OriginalResizeObserver.hasOwnProperty(staticMethod)) {
+      window.ResizeObserver[staticMethod] = OriginalResizeObserver[staticMethod];
+    }
   }
 }
+
 
 export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
     const [code, setCode] = useState(defaultLogic)

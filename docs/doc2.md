@@ -4,8 +4,6 @@ title: Blazing Fast via Compilation
 ---
 
 
-## Blazing Fast Performance with Compilation
-
 `json-logic-engine` has support for logic compilation which greatly enhances run-time performance of your logic. In a number of (simpler) cases, it can get rather close to native performance. Additionally, as of `v2.0.0`, the interpreter has an optimizer that can cache the execution plan of the logic if re-used, improving interpreted performance without the need for compilation.
 
 
