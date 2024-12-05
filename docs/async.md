@@ -3,8 +3,6 @@ id: async
 title: Asynchronous Engine
 ---
 
-## Asynchronous Engine
-
 `json-logic-engine` comes with built-in support for asynchronous operations, so that you may integrate with external data sources our modules that may only resolve via Promises.
 
 <br/>
