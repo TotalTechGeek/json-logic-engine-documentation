@@ -13,12 +13,8 @@ import { AsyncLogicEngine } from 'json-logic-engine'
 
 const engine = new AsyncLogicEngine()
 
-engine.addMethod('after250ms', async (n) => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(n)
-        }, 250)
-    })
+engine.addMethod('after250ms', async ([n]) => {
+    return new Promise(resolve => setTimeout(() => resolve(n), 250))
 })
 
 async function main () {
