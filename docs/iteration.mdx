@@ -17,7 +17,7 @@ Some | some
 None | none
 Each Object Key | eachKey
 
-Additionally, it is important to note that this module supports handlebars style traversal of data within these control structures. 
+Additionally, it is important to note that this module supports context traversal of data within these control structures. 
 
 
 ## Map
@@ -30,7 +30,7 @@ Additionally, it is important to note that this module supports handlebars style
 The first operand defines the array you are operating on, while the second defines the operation you are performing. The context switches such that the local variable is the value from the array.
 
 <br />
-This following example shows the Handlebars style traversal - <br/>
+This following example shows the context traversal, allowing `val` to ascend 2 scopes (map pushes 2 scopes, one for the iterator, one for the local context) - <br/>
 
 <LogicRunner defaultLogic={{
     'map': [{ val: 'arr'}, { '+': [{val: [[2], 'a'] }, {val: []}]}]

@@ -91,7 +91,7 @@ Params | Explanation
 -- | --
 input | Whatever data is passed into the function. If traversal is disabled, this'll be the raw input.
 context | The current "context" for the run-time. This can be either whatever the function is invoked with, or the context set by a higher order operator (map, reduce, etc.)
-above | Whenever a higher order operator is invoked, it pushes the current context to an array.  This is what allows the handlebars style traversal, so you can access values from outside of the current context.
+above | Whenever a higher order operator is invoked, it pushes the current context to an array.  This is what allows the context traversal, so you can access values from outside of the current context.
 engine | The current engine powering this call, this is really useful for when you're building custom control structures and want to invoke `engine.run` or similar.
 
 

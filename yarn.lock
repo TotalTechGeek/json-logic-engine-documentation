@@ -4718,6 +4718,11 @@ fraction.js@^4.3.7:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
+fracturedjsonjs@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/fracturedjsonjs/-/fracturedjsonjs-4.0.2.tgz#ca6ba0212ab00fa9b18ad4918653e66f3c93bf97"
+  integrity sha512-+vGJH9wK0EEhbbn50V2sOebLRaar1VL3EXr02kxchIwpkhQk0ItrPjIOtYPYuU9hNFpVzxjrPgzjtMJih+ae4A==
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -5708,10 +5713,10 @@ json-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.1.tgz#9338802a30d3b6605fbe0613e094008ca8c05a13"
   integrity sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==
 
-json-logic-engine@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/json-logic-engine/-/json-logic-engine-4.0.0.tgz#0a1c2a36345be7b7af7e7ac533f1c18c71f5d87a"
-  integrity sha512-9JGBKhKvEv4QsQaOzceaUkn4apV6DjuP5saBBELM2HI15pvhC3MquxwHUIFBZ7Rv3Fn7UU6fh6kSLib6fjNYvw==
+json-logic-engine@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/json-logic-engine/-/json-logic-engine-4.0.5.tgz#fe51258c273e7aaa940291782c4f5576f192e34f"
+  integrity sha512-LV/PdLJFziuupu+QMl3eLgAbAnn46L4d+d0sxfFMQE1LdusfdS+YLn9rwUgarfGIBJEzQrCRE+5U8MxqGlsU3A==
 
 json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
   version "2.3.1"

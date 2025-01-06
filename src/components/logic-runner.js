@@ -8,6 +8,10 @@ import Editor from "@monaco-editor/react"
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 
+import { Formatter } from 'fracturedjsonjs';
+
+
+const formatter = new Formatter();
 if (ExecutionEnvironment.canUseDOM) {
   // Save a reference to the original ResizeObserver
   const OriginalResizeObserver = window.ResizeObserver;
@@ -77,7 +81,7 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
 
             height='180px'
             className='editor'
-            defaultLanguage={'json'} defaultValue={JSON.stringify(code, undefined, 2)}  onChange={data => {
+            defaultLanguage={'json'} defaultValue={formatter.Serialize(code)}  onChange={data => {
               try { 
                 setCode(JSON.parse(data)) 
               } 
