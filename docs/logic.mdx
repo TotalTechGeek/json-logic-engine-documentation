@@ -15,18 +15,18 @@ Not | not, !
 !! (to Boolean) | !!
 And | and
 Or | or
+?? | ??
 Equals | ==
 Equals Strict | ===
 Not Equals | !=
 Not Equals Strict | !==
-Xor | xor
 If | if, ?:
 
 ## Greater Than
 
 
 <LogicRunner defaultLogic={{
-    '>': [1, {var: ''}]
+    '>': [1, {val:[]}]
 }} defaultData={2} />
 
 
@@ -34,28 +34,28 @@ If | if, ?:
 
 
 <LogicRunner defaultLogic={{
-    '>=': [10, {var: ''}]
+    '>=': [10, {val:[]}]
 }} defaultData={5} />
 
 
 ## Less Than
 
 <LogicRunner defaultLogic={{
-    '<': [5, {var: ''}]
+    '<': [5, {val:[]}]
 }} defaultData={8} />
 
 
 ## Less Than Equals
 
 <LogicRunner defaultLogic={{
-    '<=': [11, {var: ''}]
+    '<=': [11, {val:[]}]
 }} defaultData={2} />
 
 
 ## Not
 
 <LogicRunner defaultLogic={{
-    'not': { var: '' }
+    'not': { val: [] }
 }} defaultData={true} />
 
 Also available as `!`
@@ -65,14 +65,14 @@ Also available as `!`
 ## !!
 
 <LogicRunner defaultLogic={{
-    '!!': { var: '' }
+    '!!': { val: [] }
 }} defaultData={1} />
 
 
 ## And
 
 <LogicRunner defaultLogic={{
-    'and': [true, {var: ''}]
+    'and': [true, {val:[]}]
 }} defaultData={false} />
 
 ## Or
@@ -81,39 +81,38 @@ Also available as `!`
     'or': [false, {var : ''}]
 }} defaultData={true} />
 
+## ??
+
+<LogicRunner defaultLogic={{
+    '??': [null, {val:[]}]
+}} defaultData={2} />
 
 ## Equals 
  
 <LogicRunner defaultLogic={{
-    '==': [1, {var: ''}]
+    '==': [1, {val:[]}]
 }} defaultData={'1'} />
 
 ## Equals Strict 
  
 <LogicRunner defaultLogic={{
-    '===': [1, {var: ''}]
+    '===': [1, {val:[]}]
 }} defaultData={'1'} />
 
 ## Not Equals 
 
 <LogicRunner defaultLogic={{
-    '!=': [1, {var: ''}]
+    '!=': [1, {val:[]}]
 }} defaultData={'1'} />
 
 ## Not Equals Strict 
 
 <LogicRunner defaultLogic={{
-    '!==': [1, {var: ''}]
+    '!==': [1, {val:[]}]
 }} defaultData={'1'} />
-
-## Xor 
-
-<LogicRunner defaultLogic={{
-    'xor': [10, {var: ''}]
-}} defaultData={10} />
 
 ## If 
 
 <LogicRunner defaultLogic={{
-    'if': [{ '>': [{var: ''}, 5]}, 'Yay', 'Not Yay']
+    'if': [{ '>': [{val:[]}, 5]}, 'Yay', 'Not Yay']
 }} defaultData={10} />

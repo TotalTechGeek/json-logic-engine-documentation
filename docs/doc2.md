@@ -13,12 +13,12 @@ Running many iterations of `json-logic-js`'s test suite, we can observe stark pe
 
 ```
 > node test.js
-json-logic-js: 5.617s
-le interpreted: 5.287s
-le interpreted (optimized): 2.725s
-le built: 756.049ms
-le async interpreted: 4.725s
-le async built: 2.231s
+json-logic-js: 5.317s
+le interpreted: 4.944s
+le interpreted (optimized): 2.531s
+le built: 709.608ms
+le async interpreted: 4.139s
+le async built: 2.257s
 ```
 
 
@@ -28,12 +28,12 @@ This comparison is not fair though, as the compilation mechanism is able to eval
 
 ```
 > node test.js
-json-logic-js: 312.856ms
-le interpreted: 287.769ms
-le interpreted (optimized): 79.886ms
-le built: 15.186ms
-le async interpreted: 130.97ms
-le async built: 53.791ms
+json-logic-js: 312.842ms
+le interpreted: 252.758ms
+le interpreted (optimized): 78.581ms
+le built: 28.048ms
+le async interpreted: 125.851ms
+le async built: 86.444ms
 ```
 
 <br/>
@@ -42,9 +42,9 @@ Additionally, the compilation mechanism allows the asynchronous version of the e
 
 ```
 > node perf.js & node perf2.js
-interpreted: 8.765s
-interpreted (optimized): 796.726ms
-built: 130.512ms
+interpreted: 8.386s
+interpreted (optimized): 599.283ms
+built: 128.127ms
 ```
 
 --- 
@@ -83,16 +83,16 @@ vs
   or: [
     {
       and: [{
-        '===': [40, { var: 'gameDuration' }]
+        '===': [40, { val: 'gameDuration' }]
       }, {
-        '>=': [{ var: 'personalFoulCount' }, 5]
+        '>=': [{ val: 'personalFoulCount' }, 5]
       }]
     },
     {
       and: [{
-        '===': [48, { var: 'gameDuration' }]
+        '===': [48, { val: 'gameDuration' }]
       }, {
-        '>=': [{ var: 'personalFoulCount' }, 6]
+        '>=': [{ val: 'personalFoulCount' }, 6]
       }]
     }
   ]

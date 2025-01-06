@@ -15,7 +15,7 @@ engine.addMethod('hello', ([name]) => {
     return `Hello, ${name}!`
 })
 
-const f = engine.build({ 'hello': {var: ''} })
+const f = engine.build({ 'hello': { val: [] } })
 
 console.log(f('json-logic-engine')) // Hello, json-logic-engine!
 ```
@@ -30,7 +30,7 @@ engine.addMethod('repeat', ([str, times]) => {
     return str.repeat(times)
 })
 
-const g = engine.build({ 'cat' : [{ 'repeat': [{var: ''}, 7] }, ' Batman'] })
+const g = engine.build({ 'cat' : [{ 'repeat': [{val: []}, 7] }, ' Batman'] })
 
 console.log(g('Na')) // NaNaNaNaNaNaNa Batman 
 ```
@@ -70,9 +70,9 @@ engine.addMethod('repeatObj', {
    }
 })
 
-const h = engine.build({ 'repeatObj': [{ var: 'a' }, 5] })
+const h = engine.build({ 'repeatObj': [{ val: 'a' }, 5] })
 
-console.log(h()) // prints "{"var":"a"}{"var":"a"}{"var":"a"}{"var":"a"}{"var":"a"}"
+console.log(h()) // prints "{"val":"a"}{"val":"a"}{"val":"a"}{"val":"a"}{"val":"a"}"
 ```
 
 You can also specify an alternate `asyncMethod` in case for whatever reason a particular function would not function the same in an asynchronous environment (like if you're making calls to `engine.run`).

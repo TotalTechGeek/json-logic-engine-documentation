@@ -16,7 +16,7 @@ Length | length
 
 
 <LogicRunner defaultLogic={{
-    'cat': ["Hello, ", {var: ''}, "!"]
+    'cat': ["Hello, ", {val: []}, "!"]
 }} defaultData={"World"} />
 
 
@@ -24,14 +24,14 @@ Length | length
 
 
 <LogicRunner defaultLogic={{
-    'in': [{var: ''}, "hello"]
+    'in': [{val: []}, "hello"]
 }} defaultData={"e"} />
 
 
 ## Substring
 
 <LogicRunner defaultLogic={{
-    'substr': [{var: 'text'}, {var: 'start'}, {var: 'end'}]
+    'substr': [{val: 'text'}, {val: 'start'}, {val: 'end'}]
 }} defaultData={{
     text: 'json-logic-engine',
     start: 5,
@@ -42,6 +42,6 @@ Length | length
 ## Length
 
 <LogicRunner defaultLogic={{
-    'length': { var: '' }
+    'length': { val: [] }
 }} defaultData={'Hello'} />
 

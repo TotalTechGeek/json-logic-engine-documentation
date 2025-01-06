@@ -42,10 +42,10 @@ const features = [
           defaultLogic={{
             and: [
               {
-                '>=': [{ var: 'approvedBy.accountants' }, 3]
+                '>=': [{ val: ['approvedBy', 'accountants'] }, 3]
               },
               {
-                var: 'approvedBy.ceo'
+                val: ['approvedBy', 'ceo']
               }
             ]
           }}

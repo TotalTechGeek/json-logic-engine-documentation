@@ -9,6 +9,8 @@ import LogicRunner from '../src/components/logic-runner'
 
 Operators | Instruction
 -- | --
+val | val
+exists | exists
 var | var
 missing | missing
 missing_some | missing_some
@@ -18,8 +20,39 @@ These operators allow you to fetch data from the context &amp; check for the exi
 <br/>
 Additionally, these operators support handlebars style data traversal  inside of higher order operators (next page).
 
+## val 
+
+The `val` operator is used to fetch data from the context, and is the preferred method of fetching data in JSON Logic Core.
+
+This operator receives the path to the data you wish to fetch, and returns the value.
+
+
+<LogicRunner defaultLogic={{
+    val: 'name'
+}} defaultData={{ name: 'John' }} />
+
+
+If you wish, you can descend into objects and arrays:
+
+<LogicRunner defaultLogic={{
+    val: ['a', 'b', 'c']
+}} defaultData={{ a: { b: { c: 5 } } }} />
+
+## exists
+
+This operator is used to check if a value exists in the context.
+
+<LogicRunner defaultLogic={{
+    exists: 'name'
+}} defaultData={{ name: 'John' }} />
+
+
 ## var
 
+
+> [!WARNING]
+> This operator has now been deprecated in favor of `val`. This operator will continue to work,
+> But is considered a legacy operator.
 
 By just using `''` as the input for var, you can get the current value that is in scope, regardless of its type.
 
@@ -44,6 +77,11 @@ If you wish, you can drill down and fetch specific properties:
 
 ## Missing
 
+
+> [!WARNING]
+> This operator has now been deprecated in favor of `val`. This operator will continue to work,
+> But is considered a legacy operator.
+
 Returns an array of the values that are "missing"
 
 <LogicRunner defaultLogic={{
@@ -52,6 +90,11 @@ Returns an array of the values that are "missing"
 
 
 ## Missing Some
+
+
+> [!WARNING]
+> This operator has now been deprecated in favor of `val`. This operator will continue to work,
+> But is considered a legacy operator.
 
 From `json-logic-js`, passing in the number of required variables &amp; the variable names, if it has enough of them, it'll return an empty array, otherwise it'll return the items that are missing.
 

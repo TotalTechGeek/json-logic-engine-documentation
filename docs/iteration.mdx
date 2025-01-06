@@ -24,7 +24,7 @@ Additionally, it is important to note that this module supports handlebars style
 
 
 <LogicRunner defaultLogic={{
-    'map': [{ var: ''}, { '+': [{var: ''}, 1]}]
+    'map': [{ val: []}, { '+': [{val: []}, 1]}]
 }} defaultData={[1,2,3]} />
 
 The first operand defines the array you are operating on, while the second defines the operation you are performing. The context switches such that the local variable is the value from the array.
@@ -33,7 +33,7 @@ The first operand defines the array you are operating on, while the second defin
 This following example shows the Handlebars style traversal - <br/>
 
 <LogicRunner defaultLogic={{
-    'map': [{ var: 'arr'}, { '+': [{var: '../../a'}, {var: ''}]}]
+    'map': [{ val: 'arr'}, { '+': [{val: [[2], 'a'] }, {val: []}]}]
 }} defaultData={{ arr: [1,2,3], a: 2 }} />
 
 
@@ -41,7 +41,7 @@ This following example shows the Handlebars style traversal - <br/>
 
 
 <LogicRunner defaultLogic={{
-    'reduce': [{var: 'arr'}, { '+': [{var: 'accumulator'}, { var: 'current' }] }, 0]
+    'reduce': [{val: 'arr'}, { '+': [{val: 'accumulator'}, { val: 'current' }] }, 0]
 }} defaultData={{ arr:  [1,2,3,4,5] }} />
 
 The first operand defines the array you are operating on, while the second defines the operation you are performing. The context switches such that the value "current" is the value from the array, and "accumulator" is the accumulated value.
@@ -52,28 +52,28 @@ The third operand can be excluded.
 ## Filter
 
 <LogicRunner defaultLogic={{
-    'filter': [{var: ''}, { '%': [{var: ''}, 2] }]
+    'filter': [{val: []}, { '%': [{val: []}, 2] }]
 }} defaultData={[1,2,3,4,5,6,7,8,9,10]} />
 
 
 # Every, All
 
 <LogicRunner defaultLogic={{
-    'every': [{var: ''}, { '%': [{var: ''}, 2] }]
+    'every': [{val: []}, { '%': [{val: []}, 2] }]
 }} defaultData={[1,3,5,7,9]} />
 
 
 # Some
 
 <LogicRunner defaultLogic={{
-    'some': [{var: ''}, { '%': [{var: ''}, 2] }]
+    'some': [{val: []}, { '%': [{val: []}, 2] }]
 }} defaultData={[2,3,5,7,9]} />
 
 
 # None
 
 <LogicRunner defaultLogic={{
-    'none': [{var: ''}, { '%': [{var: ''}, 2] }]
+    'none': [{val: []}, { '%': [{val: []}, 2] }]
 }} defaultData={[2,4,6,8]} />
 
 # Each Key
@@ -83,7 +83,7 @@ Sometimes you may wish to iterate over an object instead of an array, executing 
 
 <LogicRunner defaultLogic={{
     'eachKey': {
-        a: { var: 'x' },
-        b: { '+': [{ var: 'y' }, 1] }
+        a: { val: 'x' },
+        b: { '+': [{ val: 'y' }, 1] }
     }
 }} defaultData={{ x: 1, y: 2 }} />
