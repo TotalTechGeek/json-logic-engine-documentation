@@ -104,7 +104,10 @@ export default function LogicRunner({ defaultLogic = '', defaultData = '' }) {
             <button className='btn btn-secondary' onClick={executeLogic}>Execute</button> <br/>
     
             Output: <br/>
-            <code>{JSON.stringify(out)}</code>
+            <code>{JSON.stringify(out, (v,x) => {
+              if (Number.isNaN(x)) return { "error": "NaN" }
+              return x
+            })}</code>
             </>
     )}
           </BrowserOnly>

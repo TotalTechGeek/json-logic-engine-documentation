@@ -1,5 +1,5 @@
 ---
-id: doc1
+id: install
 title: Installation and Setup
 sidebar_label: Installation and Setup
 slug: /

@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    Discussion: ['doc1', 'methods', 'async', 'doc2', 'doc3'],
+    Discussion: ['install', 'methods', 'async', 'bench'],
     'Default Operations': ['math', 'logic', 'string', 'array', 'misc', 'context', 'higher'],
   },
 };

@@ -1,5 +1,5 @@
 ---
-id: doc2
+id: bench
 title: Blazing Fast via Compilation
 ---
 
@@ -13,12 +13,12 @@ Running many iterations of `json-logic-js`'s test suite, we can observe stark pe
 
 ```
 > node test.js
-json-logic-js: 5.317s
-le interpreted: 4.944s
-le interpreted (optimized): 2.531s
-le built: 709.608ms
-le async interpreted: 4.139s
-le async built: 2.257s
+json-logic-js: 5.329s
+le interpreted: 4.648s
+le interpreted (optimized): 2.447s
+le built: 655.238ms
+le async interpreted: 4.076s
+le async built: 2.167s
 ```
 
 
@@ -28,12 +28,12 @@ This comparison is not fair though, as the compilation mechanism is able to eval
 
 ```
 > node test.js
-json-logic-js: 312.842ms
-le interpreted: 252.758ms
-le interpreted (optimized): 78.581ms
-le built: 28.048ms
-le async interpreted: 125.851ms
-le async built: 86.444ms
+json-logic-js: 317.355ms
+le interpreted: 222.456ms
+le interpreted (optimized): 78.932ms
+le built: 14.585ms
+le async interpreted: 130.575ms
+le async built: 55.565ms
 ```
 
 <br/>
